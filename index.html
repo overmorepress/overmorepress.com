@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baked & Blended — Overmore Press</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bevan&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #fdf6ec;
+      --warm-white: #fffaf4;
+      --brown-dark: #5a2d0c;
+      --brown-mid: #8b4a1e;
+      --brown-light: #c4874a;
+      --dusty-blue: #a8c4cc;
+      --dusty-blue-light: #d4e8ec;
+      --blush: #f2c4c4;
+      --blush-light: #fae8e8;
+      --text-dark: #3a1f0a;
+      --text-mid: #6b3d1e;
+      --gold: #d4a843;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── SCATTERED HEARTS BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(242,196,196,0.25) 0%, transparent 40%),
+        radial-gradient(circle at 85% 70%, rgba(168,196,204,0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(212,168,67,0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── FLOATING HEARTS ── */
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      font-size: 1.2rem;
+      opacity: 0;
+      animation: floatHeart linear infinite;
+    }
+    .heart:nth-child(1)  { left: 8%;  font-size: 0.9rem; animation-duration: 12s; animation-delay: 0s;   color: var(--blush); }
+    .heart:nth-child(2)  { left: 22%; font-size: 1.4rem; animation-duration: 15s; animation-delay: 3s;   color: var(--dusty-blue); }
+    .heart:nth-child(3)  { left: 40%; font-size: 0.8rem; animation-duration: 10s; animation-delay: 6s;   color: var(--gold); }
+    .heart:nth-child(4)  { left: 60%; font-size: 1.1rem; animation-duration: 14s; animation-delay: 1s;   color: var(--blush); }
+    .heart:nth-child(5)  { left: 75%; font-size: 0.7rem; animation-duration: 11s; animation-delay: 8s;   color: var(--dusty-blue); }
+    .heart:nth-child(6)  { left: 90%; font-size: 1.3rem; animation-duration: 16s; animation-delay: 4s;   color: var(--blush); }
+    .heart:nth-child(7)  { left: 33%; font-size: 1.0rem; animation-duration: 13s; animation-delay: 9s;   color: var(--gold); }
+    .heart:nth-child(8)  { left: 55%; font-size: 0.85rem; animation-duration: 17s; animation-delay: 2s;  color: var(--blush); }
+
+    @keyframes floatHeart {
+      0%   { transform: translateY(110vh) rotate(-10deg); opacity: 0; }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.4; }
+      100% { transform: translateY(-10vh) rotate(10deg); opacity: 0; }
+    }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      padding: 48px 0 32px;
+      animation: fadeDown 0.8s ease both;
+    }
+    .imprint-name {
+      font-family: 'Bevan', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      opacity: 0.75;
+    }
+    .imprint-tagline {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--brown-light);
+      margin-top: 3px;
+      opacity: 0.65;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+      padding: 16px 0 40px;
+      animation: fadeUp 0.9s ease 0.2s both;
+    }
+
+    .book-cover-wrap {
+      position: relative;
+      width: 280px;
+      flex-shrink: 0;
+    }
+    .book-cover-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--dusty-blue-light), var(--blush-light), var(--cream));
+      z-index: -1;
+      filter: blur(12px);
+      opacity: 0.8;
+    }
+    .book-cover {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow:
+        0 4px 12px rgba(90,45,12,0.15),
+        0 20px 48px rgba(90,45,12,0.12),
+        4px 4px 0 rgba(168,196,204,0.4);
+      display: block;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .book-cover:hover {
+      transform: translateY(-6px) rotate(1deg);
+      box-shadow:
+        0 8px 24px rgba(90,45,12,0.2),
+        0 32px 64px rgba(90,45,12,0.15),
+        6px 6px 0 rgba(168,196,204,0.5);
+    }
+
+    .hero-text {
+      text-align: center;
+      max-width: 500px;
+    }
+    .coming-soon-badge {
+      display: inline-block;
+      background: var(--dusty-blue);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Bevan', serif;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      color: var(--brown-dark);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .hero-title .amp {
+      color: var(--brown-mid);
+    }
+    .hero-subtitle {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: var(--brown-mid);
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+    .hero-description {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+      margin-bottom: 10px;
+    }
+    .age-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--brown-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 40px 0;
+      opacity: 0.4;
+    }
+    .divider-line { flex: 1; height: 1px; background: var(--brown-light); }
+    .divider-icon { font-size: 1rem; color: var(--brown-light); }
+
+    /* ── EMAIL SECTION ── */
+    .email-section {
+      background: linear-gradient(135deg, var(--warm-white), var(--blush-light));
+      border: 1.5px solid rgba(196,135,74,0.2);
+      border-radius: 20px;
+      padding: 40px 36px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(90,45,12,0.06);
+      animation: fadeUp 0.9s ease 0.4s both;
+      position: relative;
+      overflow: hidden;
+    }
+    .email-section::before {
+      content: '🍰';
+      position: absolute;
+      font-size: 6rem;
+      opacity: 0.04;
+      bottom: -16px;
+      right: -8px;
+      transform: rotate(-15deg);
+    }
+    .email-section h2 {
+      font-family: 'Bevan', serif;
+      font-size: 1.5rem;
+      color: var(--brown-dark);
+      margin-bottom: 10px;
+    }
+    .email-section p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin-bottom: 28px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── MAILCHIMP EMBED PLACEHOLDER ── */
+    .mailchimp-placeholder {
+      background: rgba(255,255,255,0.7);
+      border: 2px dashed rgba(196,135,74,0.35);
+      border-radius: 12px;
+      padding: 28px 24px;
+      font-size: 0.85rem;
+      color: var(--brown-mid);
+      line-height: 1.7;
+    }
+    .mailchimp-placeholder strong {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: var(--brown-dark);
+    }
+    .mailchimp-placeholder code {
+      background: rgba(90,45,12,0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-family: monospace;
+    }
+
+    /* ── BAKING LOVE PULL QUOTE ── */
+    .pull-quote {
+      margin: 40px 0;
+      padding: 32px 40px;
+      border-left: 4px solid var(--dusty-blue);
+      background: linear-gradient(135deg, var(--dusty-blue-light), transparent);
+      border-radius: 0 16px 16px 0;
+      animation: fadeUp 0.9s ease 0.5s both;
+    }
+    .pull-quote blockquote {
+      font-family: 'Bevan', serif;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: var(--brown-dark);
+      line-height: 1.5;
+      font-style: normal;
+    }
+    .pull-quote cite {
+      display: block;
+      margin-top: 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--brown-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-style: normal;
+    }
+
+    /* ── ABOUT ── */
+    .about-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+      animation: fadeUp 0.9s ease 0.6s both;
+    }
+    .about-section h3 {
+      font-family: 'Bevan', serif;
+      font-size: 1.2rem;
+      color: var(--brown-dark);
+      margin-bottom: 4px;
+    }
+    .about-section p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+      max-width: 520px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      padding-bottom: 40px;
+      animation: fadeUp 0.9s ease 0.7s both;
+    }
+    .footer-imprint {
+      font-family: 'Bevan', serif;
+      font-size: 1rem;
+      color: var(--brown-mid);
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: var(--brown-light);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    footer a {
+      color: var(--brown-light);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    footer a:hover { color: var(--brown-dark); }
+    .footer-hearts { font-size: 0.7rem; margin: 0 6px; opacity: 0.5; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (min-width: 600px) {
+      .hero {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 48px;
+      }
+      .hero-text { text-align: left; }
+      .coming-soon-badge { margin-bottom: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts -->
+  <div class="hearts">
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+  </div>
+
+  <div class="wrapper">
+
+    <!-- Header -->
+    <header>
+      <div class="imprint-name">Overmore Press</div>
+      <div class="imprint-tagline">Stories that overflow</div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="book-cover-wrap">
+        <img
+          class="book-cover"
+          src="cover.png"
+          alt="Baked & Blended: All the Right Ingredients book cover"
+        />
+      </div>
+      <div class="hero-text">
+        <span class="coming-soon-badge">Coming Soon</span>
+        <h1 class="hero-title">Baked <span class="amp">&</span> Blended</h1>
+        <p class="hero-subtitle">All the Right Ingredients</p>
+        <p class="hero-description">
+          What's the secret ingredient for family?<br><br>
+          Jojo Bean thinks it might be candy, sprinkles, or frosting… but Bonus Mama says it's something even better.<br><br>
+          When Jojo Bean worries about how to celebrate a birthday across two different homes, he discovers that love — like baking — rises slowly, sticks together, and finds its own way to be just right.<br><br>
+          A warm and whimsical read-aloud for blended families, stepfamilies, and anyone who believes love comes in many flavors. The perfect gift for birthdays, holidays, and bedtime snuggles.
+        </p>
+        <span class="age-tag">📖 Ages 4–8 · Includes activities &amp; recipes</span>
+      </div>
+    </section>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-icon">🍰</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Email Capture -->
+    <section class="email-section">
+      <h2>Be the First to Know</h2>
+      <p>
+        Join our list for the release announcement, exclusive extras, and a little baking love delivered straight to your inbox.
+      </p>
+
+      <!-- ✦ REPLACE THIS BLOCK WITH YOUR MAILCHIMP EMBED CODE ✦ -->
+      <div class="mailchimp-placeholder">
+        <strong>📬 Add your Mailchimp embed form here</strong>
+        1. Create a free account at <code>mailchimp.com</code><br>
+        2. Go to Audience → Signup Forms → Embedded Forms<br>
+        3. Copy the embed code and replace this entire &lt;div&gt; block with it
+      </div>
+      <!-- ✦ END MAILCHIMP PLACEHOLDER ✦ -->
+
+    </section>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-icon">♥</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote">
+      <blockquote>
+        "Some families are baked from scratch. Some are blended together. All of them are made with love."
+      </blockquote>
+      <cite>— Baked &amp; Blended: All the Right Ingredients</cite>
+    </div>
+
+    <!-- About -->
+    <section class="about-section">
+      <div>
+        <h3>About the Author</h3>
+        <p>
+          Stacie Mizzi is an author and entrepreneur whose work is rooted in a lifelong passion for inspiring women and families to experience life to the fullest. A mother of three and proud stepmother, she writes for children navigating blended families and non-traditional family structures — with the belief that every child deserves to see their family reflected in the books they love.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-imprint">Overmore Press</div>
+      <div class="footer-tagline">Stories that overflow</div>
+      <a href="/cdn-cgi/l/email-protection#a8c1c6cec7e8c7decddac5c7dacdd8dacddbdb86cbc7c5"><span class="__cf_email__" data-cfemail="f29b9c949db29d8497809f9d80978280978181dc919d9f">[email&#160;protected]</span></a>
+      <sp
