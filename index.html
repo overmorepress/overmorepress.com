@@ -354,6 +354,28 @@
     footer a:hover { color: var(--brown-dark); }
     .footer-hearts { font-size: 0.7rem; margin: 0 6px; opacity: 0.5; }
 
+    /* ── BUY BUTTON ── */
+    .buy-button {
+      display: inline-block;
+      margin-top: 20px;
+      background: var(--brown-dark);
+      color: white !important;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
+      box-shadow: 0 4px 16px rgba(90,45,12,0.2);
+    }
+    .buy-button:hover {
+      background: var(--brown-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(90,45,12,0.25);
+    }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-20px); }
@@ -404,12 +426,12 @@
       <div class="book-cover-wrap">
         <img
           class="book-cover"
-          src="cover.png"
+          src="cover.jpg"
           alt="Baked & Blended: All the Right Ingredients book cover"
         />
       </div>
       <div class="hero-text">
-        <span class="coming-soon-badge">Coming Soon</span>
+        <span class="coming-soon-badge">Available Now</span>
         <h1 class="hero-title">Baked <span class="amp">&</span> Blended</h1>
         <p class="hero-subtitle">All the Right Ingredients</p>
         <p class="hero-description">
@@ -419,6 +441,7 @@
           A warm and whimsical read-aloud for blended families, stepfamilies, and anyone who believes love comes in many flavors. The perfect gift for birthdays, holidays, and bedtime snuggles.
         </p>
         <span class="age-tag">📖 Ages 4–8 · Includes activities &amp; recipes</span>
+        <a class="buy-button" href="https://a.co/d/0hGaxpVx" target="_blank" rel="noopener">Order on Amazon 🛒</a>
       </div>
     </section>
 
@@ -430,9 +453,9 @@
 
     <!-- Email Capture -->
     <section class="email-section">
-      <h2>Be the First to Know</h2>
+      <h2>Join the Community</h2>
       <p>
-        Join our list for the release announcement, exclusive extras, and a little baking love delivered straight to your inbox.
+        Sign up for exclusive extras, activities, recipes, and a little baking love delivered straight to your inbox.
       </p>
 
       <div id="mc_embed_shell">
@@ -517,6 +540,7 @@
             </div>
           </form>
         </div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
         <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
       </div>
