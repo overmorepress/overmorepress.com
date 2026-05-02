@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Press Assets — Overmore Press</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Tokens ────────────────────────────────────────────────────────────── */
+    :root {
+      --brown:     #3C2415;
+      --parchment: #F5F0E8;
+      --gold:      #C49A38;
+      --ash:       #8C8478;
+      --cocoa:     #7A4420;
+      --cream:     #FDFAF5;
+      --sky:       #A8D4E8;
+      --pink:      #EF9FB3;
+    }
+
+    /* ── Reset ─────────────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--parchment);
+      color: var(--brown);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ────────────────────────────────────────────────────────────── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* ── Header ────────────────────────────────────────────────────────────── */
+    header {
+      text-align: center;
+      padding: 56px 0 0;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .wordmark img {
+      height: 72px;
+      width: auto;
+    }
+
+    .tagline {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--ash);
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+    }
+
+    .gold-rule {
+      border: none;
+      border-bottom: 2px solid var(--gold);
+      margin: 28px 0;
+      opacity: 0.7;
+    }
+
+    .page-label {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 4px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: clamp(28px, 5vw, 40px);
+      color: var(--brown);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    header h1 em {
+      font-style: italic;
+      color: var(--cocoa);
+      font-weight: 700;
+    }
+
+    header p.intro {
+      font-size: 15px;
+      color: var(--ash);
+      max-width: 480px;
+      margin: 12px auto 0;
+    }
+
+    /* ── Sections ──────────────────────────────────────────────────────────── */
+    section {
+      margin-top: 56px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    section:nth-child(2) { animation-delay: 0.08s; }
+    section:nth-child(3) { animation-delay: 0.16s; }
+    section:nth-child(4) { animation-delay: 0.24s; }
+    section:nth-child(5) { animation-delay: 0.32s; }
+
+    .section-label {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(196,154,56,0.3);
+    }
+
+    /* ── Book hero block ───────────────────────────────────────────────────── */
+    .book-hero {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .book-cover {
+      width: 180px;
+      border: 1px solid rgba(196,154,56,0.4);
+      box-shadow: 4px 6px 20px rgba(60,36,21,0.15);
+      display: block;
+    }
+
+    .book-info h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: 26px;
+      line-height: 1.2;
+      color: var(--brown);
+    }
+
+    .book-info h2 em {
+      display: block;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--cocoa);
+      margin-top: 2px;
+    }
+
+    .book-info .byline {
+      font-size: 13px;
+      color: var(--ash);
+      margin: 8px 0 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .book-info .pitch {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--brown);
+      border-left: 3px solid var(--gold);
+      padding-left: 14px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* Badges */
+    .badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .badge-dark {
+      background: var(--brown);
+      color: var(--cream);
+    }
+
+    .badge-dark span {
+      display: block;
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 10px;
+      color: var(--sky);
+      margin-top: 1px;
+    }
+
+    .badge-cocoa {
+      background: var(--cocoa);
+      color: #F2C632;
+    }
+
+    .badge-cocoa span {
+      display: block;
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 400;
+      font-size: 10px;
+      color: rgba(253,250,245,0.85);
+      margin-top: 1px;
+    }
+
+    /* ── Asset grid ────────────────────────────────────────────────────────── */
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .asset-card {
+      background: var(--cream);
+      border: 1px solid rgba(196,154,56,0.25);
+      padding: 20px;
+      text-decoration: none;
+      color: var(--brown);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .asset-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 16px rgba(60,36,21,0.1);
+      transform: translateY(-2px);
+    }
+
+    .asset-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .asset-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--brown);
+    }
+
+    .asset-desc {
+      font-size: 12px;
+      color: var(--ash);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .asset-dl {
+      margin-top: auto;
+      font-size: 11px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── Book details table ────────────────────────────────────────────────── */
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .details-table tr {
+      border-bottom: 1px solid rgba(196,154,56,0.18);
+    }
+
+    .details-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .details-table td {
+      padding: 10px 0;
+      vertical-align: top;
+    }
+
+    .details-table td:first-child {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ash);
+      width: 160px;
+      padding-right: 24px;
+    }
+
+    .details-table td a {
+      color: var(--cocoa);
+    }
+
+    /* ── Author block ──────────────────────────────────────────────────────── */
+    .author-block {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .author-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(196,154,56,0.5);
+      box-shadow: 0 2px 12px rgba(60,36,21,0.12);
+      display: block;
+    }
+
+    .author-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: var(--brown);
+      margin-bottom: 4px;
+    }
+
+    .author-title {
+      font-size: 12px;
+      color: var(--ash);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .author-bio {
+      font-size: 14px;
+      color: var(--brown);
+      line-height: 1.7;
+    }
+
+    /* ── Contact block ─────────────────────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .contact-card {
+      background: var(--cream);
+      border: 1px solid rgba(196,154,56,0.25);
+      padding: 28px 32px;
+    }
+
+    .contact-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .contact-card p, .contact-card a {
+      font-size: 14px;
+      color: var(--brown);
+      display: block;
+      line-height: 1.8;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      color: var(--cocoa);
+      text-decoration: underline;
+    }
+
+    .contact-card strong {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── Footer ────────────────────────────────────────────────────────────── */
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 2px solid var(--gold);
+      text-align: center;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--ash);
+      letter-spacing: 0.03em;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    /* ── Animation ─────────────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ────────────────────────────────────────────────────────── */
+    @media (max-width: 620px) {
+      .page { padding: 0 20px 60px; }
+      .book-hero { grid-template-columns: 1fr; }
+      .book-cover { width: 140px; }
+      .author-block { grid-template-columns: 1fr; }
+      .author-photo { width: 90px; height: 90px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .asset-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── Header ─────────────────────────────────────────────────────────── -->
+    <header>
+      <div class="wordmark">
+        <img src="Overmore_Wordmark_Cream.png" alt="Overmore Press" />
+      </div>
+      <p class="tagline">Stories that overflow · overmorepress.com</p>
+      <hr class="gold-rule" />
+      <p class="page-label">Press Kit</p>
+      <h1>Media Assets &amp; <em>Press Information</em></h1>
+      <p class="intro">All assets are available for editorial use. For questions or interview requests, contact info@overmorepress.com.</p>
+    </header>
+
+    <!-- ── Book ───────────────────────────────────────────────────────────── -->
+    <section>
+      <p class="section-label">The Book</p>
+      <div class="book-hero">
+        <img src="BB_Cover_HiRes.jpg" alt="Baked & Blended: All the Right Ingredients book cover" class="book-cover" />
+        <div class="book-info">
+          <h2>Baked &amp; Blended <em>All the Right Ingredients</em></h2>
+          <p class="byline">by Stacie Mizzi &nbsp;·&nbsp; Overmore Press, 2026</p>
+          <p class="pitch">A warm, whimsical picture book for ages 4–8 about a boy in a blended family who discovers that love — like baking — rises slowly, sticks together, and finds its own way to be just right.</p>
+          <div class="badges">
+            <div class="badge badge-dark">
+              ★ ★ ★ ★ ★&nbsp; 17 Five-Star Reviews
+              <span>on Amazon</span>
+            </div>
+            <div class="badge badge-cocoa">
+              #1 New Release
+              <span>Children's Stepfamilies Books</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Assets ─────────────────────────────────────────────────────────── -->
+    <section>
+      <p class="section-label">Downloadable Assets</p>
+      <div class="asset-grid">
+        <a href="BB_Cover_HiRes.jpg" download class="asset-card">
+          <div class="asset-icon">📖</div>
+          <div class="asset-name">Book Cover</div>
+          <div class="asset-desc">Hi-res front cover, print quality</div>
+          <div class="asset-dl">↓ Download JPG</div>
+        </a>
+        <a href="Stacie_Mizzi_Headshot.jpg" download class="asset-card">
+          <div class="asset-icon">🖼</div>
+          <div class="asset-name">Author Headshot</div>
+          <div class="asset-desc">Hi-res photo of Stacie Mizzi</div>
+          <div class="asset-dl">↓ Download JPG</div>
+        </a>
+        <a href="Overmore_Wordmark_Transparent.png" download class="asset-card">
+          <div class="asset-icon">◻</div>
+          <div class="asset-name">Wordmark — Transparent</div>
+          <div class="asset-desc">PNG, transparent background</div>
+          <div class="asset-dl">↓ Download PNG</div>
+        </a>
+        <a href="Overmore_Wordmark_Cream.png" download class="asset-card">
+          <div class="asset-icon">◼</div>
+          <div class="asset-name">Wordmark — Cream</div>
+          <div class="asset-desc">PNG, cream background</div>
+          <div class="asset-dl">↓ Download PNG</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── Book details ────────────────────────────────────────────────────── -->
+    <section>
+      <p class="section-label">Book Details</p>
+      <table class="details-table">
+        <tr><td>Genre</td><td>Children's Picture Book · Juvenile Fiction / Family</td></tr>
+        <tr><td>Age Range</td><td>4–8 years</td></tr>
+        <tr><td>Page Count</td><td>44 pages, including activity pages and two family recipes</td></tr>
+        <tr><td>Series</td><td>Baked &amp; Blended, Book 1</td></tr>
+        <tr><td>Formats</td><td>Paperback $14.99 · Hardcover $26.99 · eBook $5.99</td></tr>
+        <tr><td>ISBNs</td><td>PB 979-8-9955044-0-5 · HC 979-8-9955044-1-2 · EPUB 979-8-9955044-2-9</td></tr>
+        <tr><td>On Amazon</td><td><a href="https://a.co/d/0hGaxpVx" target="_blank">https://a.co/d/0hGaxpVx</a></td></tr>
+        <tr><td>Distribution</td><td>Amazon KDP (paperback, eBook) · IngramSpark (hardcover, 55% wholesale)</td></tr>
+      </table>
+    </section>
+
+    <!-- ── Author ─────────────────────────────────────────────────────────── -->
+    <section>
+      <p class="section-label">About the Author</p>
+      <div class="author-block">
+        <img src="Stacie_Mizzi_Headshot.jpg" alt="Stacie Mizzi" class="author-photo" />
+        <div>
+          <p class="author-name">Stacie Mizzi</p>
+          <p class="author-title">Author &amp; Publisher, Overmore Press</p>
+          <p class="author-bio">Stacie Mizzi is an author and entrepreneur whose work is rooted in a lifelong passion for inspiring women and families to experience life to the fullest. A mother of three and proud stepmother, she was inspired to write her debut picture book, <em>Baked &amp; Blended: All the Right Ingredients,</em> by her own blended family experience. She writes for children navigating blended families and non-traditional family structures with the belief that every child deserves to see their family reflected in the books they love. She publishes under Overmore Press.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact ─────────────────────────────────────────────────────────── -->
+    <section>
+      <p class="section-label">Press Contact &amp; Review Copies</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Press Contact</h3>
+          <strong>Stacie Mizzi</strong>
+          <p>Author &amp; Publisher, Overmore Press</p>
+          <a href="mailto:info@overmorepress.com">info@overmorepress.com</a>
+          <a href="https://overmorepress.com">overmorepress.com</a>
+          <a href="https://instagram.com/overmorepress">@overmorepress</a>
+        </div>
+        <div class="contact-card">
+          <h3>Review Copies</h3>
+          <p>Physical copies available by request, gifted via Amazon.</p>
+          <br />
+          <p>Digital ARC available as PDF upon request.</p>
+          <br />
+          <p style="font-style:italic; color: var(--ash); font-size:13px;">All assets on this page are cleared for editorial use with credit to Overmore Press.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Footer ─────────────────────────────────────────────────────────── -->
+    <footer>
+      Overmore Press &nbsp;·&nbsp; Stories that overflow &nbsp;·&nbsp; overmorepress.com &nbsp;·&nbsp; info@overmorepress.com &nbsp;·&nbsp; @overmorepress
+    </footer>
+
+  </div>
+</body>
+</html>
